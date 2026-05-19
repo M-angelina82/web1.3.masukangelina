@@ -1,0 +1,40 @@
+<?php
+$lang = $_POST['lang'] ?? ($_COOKIE['lang'] ?? 'uk');
+setcookie("lang", $lang, time() + 3600 * 24 * 30);
+
+$ip = $_SERVER['REMOTE_ADDR'];
+
+if ($lang == 'en') {
+    $text = "Current date and time";
+} else {
+    $text = "Поточна дата і час";
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHP Lab</title>
+</head>
+<body>
+
+<form method="POST">
+    <label>Вибери мову:</label>
+    <select name="lang">
+        <option value="uk">Українська</option>
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Franche</option>
+    </select>
+    <button type="submit">OK</button>
+</form>
+
+<hr>
+
+<p><b><?php echo $text; ?></b></p>
+<p><?php echo date("Y-m-d H:i:s"); ?></p>
+<p>IP: <?php echo $ip; ?></p>
+
+</body>
+</html>
