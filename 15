@@ -1,0 +1,33 @@
+function Footer() {
+  return (
+    <footer>
+      <p> 2026 Магазин</p>
+    </footer>
+  );
+}
+
+export default Footer;
+
+
+function Header() {
+  return (
+    <header>
+      <h1>Каталог товарів</h1>
+    </header>
+  );
+}
+
+export default Header;
+
+
+function ProductCard(props) {
+  return (
+    <div>
+      <h2>{props.title}</h2>
+      <p>Ціна: {props.price} грн</p>
+      <p>Категорія: {props.category}</p>
+    </div>
+  );
+}
+
+export default ProductCard;
